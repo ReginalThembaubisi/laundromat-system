@@ -19,6 +19,7 @@ const QuickLaundryForm = () => {
     } else {
       setProfile(null);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [studentId]);
 
   // Load saved photos when profile is loaded
@@ -26,6 +27,7 @@ const QuickLaundryForm = () => {
     if (profile) {
       loadSavedPhotos();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [profile]);
 
   const loadProfile = async () => {

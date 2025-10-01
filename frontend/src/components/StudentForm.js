@@ -60,7 +60,7 @@ const StudentForm = () => {
         submitData.append('photos', photo.file);
       });
 
-      const response = await axios.post('/api/laundry', submitData, {
+      await axios.post('/api/laundry', submitData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
