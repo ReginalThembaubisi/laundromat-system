@@ -1,34 +1,17 @@
 {
   "version": 2,
-  "builds": [
+  "buildCommand": "cd frontend && npm install && npm run build",
+  "outputDirectory": "frontend/build",
+  "framework": null,
+  "rewrites": [
     {
-      "src": "server-simple-whatsapp.js",
-      "use": "@vercel/node"
+      "source": "/api/:path*",
+      "destination": "/api/:path*"
     },
     {
-      "src": "frontend/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "frontend/build"
-      }
+      "source": "/:path*",
+      "destination": "/index.html"
     }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "/server-simple-whatsapp.js"
-    },
-    {
-      "src": "/static/(.*)",
-      "dest": "/frontend/build/static/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/frontend/build/index.html"
-    }
-  ],
-  "env": {
-    "NODE_ENV": "production"
-  }
+  ]
 }
 
